@@ -1232,7 +1232,9 @@ function acf_get_terms( $args ) {
 	// WP 4.5+
 	if( version_compare($wp_version, '4.5', '>=' ) ) {
 		
-		$terms = get_terms( $args );
+		if ( 'yst_prominent_words' !==  $args['taxonomy'] ) {
+			$terms = get_terms( $args );	
+		}		
 
 	// WP < 4.5
 	} else {
